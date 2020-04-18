@@ -1,4 +1,4 @@
----Запит 1: вивести замки та загальну вартість усіх юнітів. Замок - вартість.
+---First query
 
 SELECT CASTLE.CASTLE, SUM(UNITS.GOLD) AS TOTAL_GOLD
 FROM CASTLE JOIN UNITS
@@ -6,7 +6,7 @@ ON CASTLE.UNIT_NAME = UNITS.UNIT_NAME
 GROUP BY CASTLE.CASTLE
 ORDER BY TOTAL_GOLD ASC;
 
----Запит 2: вивести замок та % вартості його юнітів від загальної вартості усіх юнітів. 
+---Second query
 
 SELECT CASTLE.CASTLE, round ((SUM(UNITS.GOLD) + 0.0) / tg.TOTAL * 100, 2) AS PERCENT_
 FROM 
@@ -17,7 +17,7 @@ FROM
 GROUP BY CASTLE.CASTLE, tg.TOTAL
 ORDER BY PERCENT_ ASC;
 
----Запит 3: вивести максимальну швидкість юнітів залежно від їх рівня.
+---Third query
 
 SELECT UNIT_LEVELS.UNIT_LEVEL, MAX(UNITS.ATTACK) AS MAX_ATTACK
 FROM UNIT_LEVELS JOIN UNITS
